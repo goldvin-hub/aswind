@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASWIN — AI &amp; Data Science Portfolio</title>
+  <meta name="description" content="Portfolio of Aswin, B.Tech Artificial Intelligence &amp; Data Science student at DMI Engineering College (Anna University). Python, C++, SQL, Machine Learning, Data Analytics, and Web Development.">
+  <meta name="theme-color" content="#07070a">
+
+  <!-- Open Graph & Social Sharing Previews (LinkedIn, WhatsApp, Twitter) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ASWIN — AI &amp; Data Science Portfolio">
+  <meta property="og:description" content="B.Tech AI &amp; Data Science student at DMI Engineering College (Anna University). Python, C++, SQL, Machine Learning, Data Analytics, and Web Development.">
+  <meta property="og:image" content="./myweb.png">
+  <meta property="og:url" content="https://aswin.dev">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ASWIN — AI &amp; Data Science Portfolio">
+  <meta name="twitter:description" content="AI Engineer &amp; Developer. Machine Learning, Data Analytics, and Modern Web Applications.">
+  <meta name="twitter:image" content="./myweb.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Noto+Serif+JP:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Subtle Custom Cyber Cursor Follower (Desktop only) -->
+  <div class="custom-cursor-glow" id="custom-cursor"></div>
+
+  <!-- FIXED CANVAS BACKGROUND (300 Frames Scrubbing as you scroll) -->
+  <div class="fixed-canvas-background" id="canvas-bg-root">
+    <canvas id="samurai-canvas"></canvas>
+    <div class="canvas-vignette"></div>
+    <div class="canvas-petals-overlay" id="petals-container"></div>
+  </div>
+
+  <!-- Anime Manga Skyscraper Terminal Dive Preloader (Visuals from user sketch) -->
+  <div id="preloader" class="preloader manga-dive-preloader" aria-label="Loading portfolio experience">
+    <!-- Real-time 3D Skyscraper City with Fish-Eye Projection & Speedlines Canvas -->
+    <canvas id="manga-dive-canvas" class="manga-dive-canvas"></canvas>
+
+    <!-- Halftone & Manga Screentone Texture Overlay -->
+    <div class="manga-screen-overlay"></div>
+    <!-- Terminal Velocity Speedlines Flurry Overlay -->
+    <div class="manga-speedline-flurry" id="manga-speedline-flurry"></div>
+
+    <!-- High-Contrast Inverted Sakuga Impact Frame on Entry -->
+    <div class="manga-impact-flash" id="anime-impact-frame"></div>
+    <div class="manga-white-flash" id="slash-screen-flash"></div>
+
+    <!-- Central Standalone Symbol Logo (Matching menu top-left kanji, no box) -->
+    <div class="manga-loading-center" id="manga-center-logo" aria-hidden="true">
+      <div class="loader-symbol-wrapper">
+        <span class="loader-standalone-symbol">勝</span>
+        <div class="loader-symbol-aura"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mobile Navigation Backdrop Overlay -->
+  <div class="nav-drawer-backdrop" id="nav-drawer-backdrop" aria-hidden="true"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-nav-bar">
+    <div class="nav-container">
+      <div class="nav-brand" onclick="scrollToSection('section-home')">
+        <span class="hanko-seal red-kanji-seal">勝</span>
+        <span class="brand-text">ASWIN</span>
+      </div>
+
+      <div class="nav-right-cluster">
+        <nav class="nav-links" id="main-nav-links">
+          <div class="nav-drawer-header">
+            <div class="nav-brand" onclick="scrollToSection('section-home')">
+              <span class="hanko-seal red-kanji-seal">勝</span>
+              <span class="brand-text">ASWIN</span>
+            </div>
+            <button class="nav-drawer-close-btn" id="nav-drawer-close" aria-label="Close Navigation Menu">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+          <a href="#section-home" class="nav-link active" style="--i: 1"><span class="nav-num">01</span> HOME</a>
+          <a href="#section-about" class="nav-link" style="--i: 2"><span class="nav-num">02</span> ABOUT</a>
+          <a href="#section-skills" class="nav-link" style="--i: 3"><span class="nav-num">03</span> SKILLS</a>
+          <a href="#section-work" class="nav-link" style="--i: 4"><span class="nav-num">04</span> WORK</a>
+          <a href="#section-contact" class="nav-link" style="--i: 5"><span class="nav-num">05</span> CONTACT</a>
+          <a href="./port.pdf" target="_blank" class="nav-link nav-resume-badge" style="--i: 6"><i class="fa-solid fa-file-pdf"></i> RESUME</a>
+        </nav>
+
+        <button id="nav-toggle" class="nav-hamburger-btn" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Vertical Scroll Indicator on Right Edge -->
+  <div class="vertical-scroll-edge" id="scroll-cue">
+    <span class="scroll-text">SCROLL DOWN</span>
+    <div class="vertical-scroll-line"></div>
+  </div>
+
+  <!-- MAIN PAGE CONTENT (Aligned to match myweb.png) -->
+  <main class="page-content-wrapper" id="content-wrapper">
+
+    <!-- 01: Hero / Home Section (Docked to Left) -->
+    <section class="content-section hero-section" id="section-home">
+      <div class="section-container">
+        <div class="hero-left-box">
+          <div class="sub-badge-red hero-sub-badge">
+            <span class="badge-kanji-red">侍</span>
+            <span>AI &amp; DATA SCIENCE | B.TECH 2024–2028</span>
+          </div>
+          <h1 class="hero-title">
+            I Build<br>
+            <span class="text-accent-red">Digital</span><br>
+            Experiences
+          </h1>
+          <p class="hero-subtitle">
+            Motivated B.Tech Artificial Intelligence and Data Science student at DMI Engineering College (Anna University) crafting intelligent systems, data analytics, and modern web applications.
+          </p>
+          <div class="hero-btn-row">
+            <button class="btn-dark-pill" onclick="scrollToSection('section-work')">VIEW MY WORK</button>
+            <a href="./port.pdf" target="_blank" class="btn-dark-pill">DOWNLOAD RESUME</a>
+            <button class="btn-dark-pill" onclick="scrollToSection('section-contact')">GET IN TOUCH</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02: About Me Section (2 Column Side-by-Side: Text Left, Portrait Right) -->
+    <section class="content-section about-section" id="section-about">
+      <div class="section-container">
+        <div class="about-grid-layout">
+          <div class="about-left-col">
+            <div class="sub-badge-red">
+              <span class="badge-kanji-red">挑戦</span>
+              <span>ABOUT ME</span>
+            </div>
+            <h2 class="section-title-big">
+              Turning <span class="text-accent-red">Data &amp;</span><br>
+              <span class="text-accent-red">Code</span> Into Impact
+            </h2>
+            <p class="about-para">
+              I'm an Artificial Intelligence and Data Science undergraduate at <b>DMI Engineering College, Anna University</b> (Expected Graduation: 2028) with strong foundations in <b>Python, C++, SQL, Data Structures, DBMS, Machine Learning</b>, and algorithmic problem solving.
+            </p>
+            <p class="about-para">
+              From analyzing complex datasets with Tableau during my internship at <b>Agile Infotech</b> to engineering Python-powered automation for attendance tracking and hackathon-recognized satellite image analysis, I bridge analytical precision with user-centered software development.
+            </p>
+            
+            <div class="about-soft-pills">
+              <span class="soft-pill">Problem Solving</span>
+              <span class="soft-pill">Analytical Thinking</span>
+              <span class="soft-pill">Teamwork</span>
+              <span class="soft-pill">Leadership</span>
+              <span class="soft-pill">Communication</span>
+              <span class="soft-pill">Adaptability</span>
+            </div>
+            
+            <div class="about-lang-tag">
+              <i class="fa-solid fa-language text-accent-red"></i> Languages Known: <b>English</b> &bull; <b>Tamil</b>
+            </div>
+          </div>
+          
+          <div class="about-right-col">
+            <div class="about-portrait-frame">
+              <img src="./Cinematic%20Monochrome%20Formal%20Portrait.png" alt="Aswin" class="about-portrait-img">
+              <div class="portrait-glow-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03: Technical Skills (2x2 Grid: 4 Boxes Grounded in port.pdf) -->
+    <section class="content-section skills-section" id="section-skills">
+      <div class="section-container">
+        <div class="skills-header">
+          <div class="sub-badge-red">
+            <span class="badge-kanji-red">特技</span>
+            <span>EXPERTISE &amp; SKILLS</span>
+          </div>
+          <h2 class="section-title-big">Technical <span class="text-accent-red">Arsenal</span></h2>
+        </div>
+
+        <div class="arsenal-2x2-grid">
+          <!-- Box 1: AI & Machine Learning -->
+          <div class="arsenal-card">
+            <div class="arsenal-icon-box">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3 class="arsenal-card-title">AI &amp; Machine Learning</h3>
+            <p class="arsenal-card-desc">
+              Machine Learning, Deep Learning, and NLP models built with Python for predictive modeling, automated systems, and smart algorithms.
+            </p>
+            <div class="arsenal-tag-list">
+              <span class="arsenal-tag">PYTHON</span>
+              <span class="arsenal-tag">ML</span>
+              <span class="arsenal-tag">DL</span>
+              <span class="arsenal-tag">NLP</span>
+            </div>
+          </div>
+
+          <!-- Box 2: Data Analytics & BI (Agile Infotech) -->
+          <div class="arsenal-card">
+            <div class="arsenal-icon-box">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="arsenal-card-title">Data Analytics &amp; BI</h3>
+            <p class="arsenal-card-desc">
+              Interactive Tableau dashboards, KPI metrics, exploratory data analysis, data cleaning, and actionable business intelligence from large datasets.
+            </p>
+            <div class="arsenal-tag-list">
+              <span class="arsenal-tag">TABLEAU</span>
+              <span class="arsenal-tag">DATA ANALYTICS</span>
+              <span class="arsenal-tag">DATA CLEANING</span>
+              <span class="arsenal-tag">DASHBOARDS</span>
+            </div>
+          </div>
+
+          <!-- Box 3: Core CS & Databases -->
+          <div class="arsenal-card">
+            <div class="arsenal-icon-box">
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <h3 class="arsenal-card-title">Core CS &amp; Databases</h3>
+            <p class="arsenal-card-desc">
+              Solid foundations in Data Structures &amp; Algorithms, Object-Oriented Programming (OOP), SQL queries, MySQL, and DBMS architectures.
+            </p>
+            <div class="arsenal-tag-list">
+              <span class="arsenal-tag">PYTHON</span>
+              <span class="arsenal-tag">C++</span>
+              <span class="arsenal-tag">SQL</span>
+              <span class="arsenal-tag">MYSQL</span>
+              <span class="arsenal-tag">DSA</span>
+              <span class="arsenal-tag">OOP</span>
+              <span class="arsenal-tag">DBMS</span>
+            </div>
+          </div>
+
+          <!-- Box 4: Web Development & Tools -->
+          <div class="arsenal-card">
+            <div class="arsenal-icon-box">
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h3 class="arsenal-card-title">Web Development &amp; Tools</h3>
+            <p class="arsenal-card-desc">
+              Responsive websites, modern frontend styling, Git version control, GitHub collaboration, VS Code workflows, and Microsoft Office productivity.
+            </p>
+            <div class="arsenal-tag-list">
+              <span class="arsenal-tag">HTML</span>
+              <span class="arsenal-tag">CSS</span>
+              <span class="arsenal-tag">JAVASCRIPT</span>
+              <span class="arsenal-tag">GIT</span>
+              <span class="arsenal-tag">GITHUB</span>
+              <span class="arsenal-tag">VS CODE</span>
+              <span class="arsenal-tag">MS OFFICE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04: Projects / Work (2x2 Grid: 4 Cards Grounded in port.pdf) -->
+    <section class="content-section work-section" id="section-work">
+      <div class="section-container">
+        <div class="skills-header">
+          <div class="sub-badge-red">
+            <span class="badge-kanji-red">開発</span>
+            <span>FEATURED PROJECTS &amp; EXPERIENCE</span>
+          </div>
+          <h2 class="section-title-big">Featured <span class="text-accent-red">Work</span></h2>
+        </div>
+
+        <div class="work-2x2-grid">
+          <!-- Card 1: Smart Attendance System -->
+          <div class="work-card" onclick="openProjectModal('attendance')">
+            <div class="work-img-container">
+              <img src="./smart_attendance.jpg" alt="Smart Attendance System" class="work-card-img" loading="lazy">
+            </div>
+            <div class="work-card-content">
+              <h3 class="work-card-title">Smart Attendance System</h3>
+              <p class="work-card-desc">Developed a Python-based attendance management application with automated attendance recording and automated report generation.</p>
+            </div>
+          </div>
+
+          <!-- Card 2: Satellite Image Analysis -->
+          <div class="work-card" onclick="openProjectModal('satellite')">
+            <div class="work-img-container">
+              <img src="./satellite_analysis.jpg" alt="Satellite Image Analysis" class="work-card-img" loading="lazy">
+            </div>
+            <div class="work-card-content">
+              <h3 class="work-card-title">Satellite Image Analysis (Hackathon)</h3>
+              <p class="work-card-desc">Collaborated on an AI-based satellite image analysis solution and presented the technical solution during a competitive hackathon.</p>
+            </div>
+          </div>
+
+          <!-- Card 3: Nike Sales Analytics (Agile Infotech) -->
+          <div class="work-card" onclick="openProjectModal('nike')">
+            <div class="work-img-container">
+              <img src="./nike_analytics.jpg" alt="Nike Sales Analytics" class="work-card-img" loading="lazy">
+            </div>
+            <div class="work-card-content">
+              <h3 class="work-card-title">Nike Sales Analytics (Internship)</h3>
+              <p class="work-card-desc">Agile Infotech 1-Month Internship — Analyzed Nike sales dataset using Tableau, designed interactive dashboards, cleaned data, and extracted KPIs.</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Tech Spark Web Platform -->
+          <div class="work-card" onclick="openProjectModal('techspark')">
+            <div class="work-img-container">
+              <img src="./tech_spark.jpg" alt="Tech Spark Website" class="work-card-img" loading="lazy">
+            </div>
+            <div class="work-card-content">
+              <h3 class="work-card-title">Tech Spark Web Platform</h3>
+              <p class="work-card-desc">Developing the official web platform for Tech Spark company in college, featuring responsive dashboards, modular UI, and developer tools.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05: Contact & Info (Flanked on sides, leaving upper-center open to view the character's face) -->
+    <section class="content-section contact-section" id="section-contact">
+      <div class="section-container container-contact-wide">
+        <div class="contact-grid-layout">
+          <!-- Left Column Box: Let's Connect -->
+          <div class="contact-card-box contact-left-col">
+            <div class="contact-col-header">
+              <div class="sub-badge-red">
+                <span class="badge-kanji-red">結</span>
+                <span>GET IN TOUCH // 連絡</span>
+              </div>
+              <h2 class="contact-col-title">Let's <span class="text-accent-red">Connect</span></h2>
+            </div>
+
+            <form id="contact-form" class="contact-form-block" onsubmit="event.preventDefault(); handleContactSubmit();">
+              <div class="contact-input-wrap">
+                <i class="fa-regular fa-user input-accent-icon"></i>
+                <input type="text" id="contact-name" placeholder="Your Name" required class="contact-input-field">
+              </div>
+              <div class="contact-input-wrap">
+                <i class="fa-regular fa-envelope input-accent-icon"></i>
+                <input type="email" id="contact-email" placeholder="Your Email" required class="contact-input-field">
+              </div>
+              <div class="contact-input-wrap">
+                <i class="fa-regular fa-comment-dots input-accent-icon"></i>
+                <input type="text" id="contact-message" placeholder="Your Message..." required class="contact-input-field">
+              </div>
+              <button type="submit" class="btn-dark-pill btn-send-submit themed-glow-btn">
+                <span>SEND MESSAGE</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </form>
+            <div id="contact-msg" class="contact-success-msg"></div>
+          </div>
+
+          <!-- Right Column Box: Direct Channels -->
+          <div class="contact-card-box contact-right-col">
+            <div class="contact-col-header">
+              <div class="sub-badge-red">
+                <span class="badge-kanji-red">所在地</span>
+                <span>DIRECT REACH</span>
+              </div>
+              <h2 class="contact-col-title">Direct <span class="text-accent-red">Channels</span></h2>
+            </div>
+
+            <div class="contact-info-stack">
+              <div class="contact-info-card copyable" onclick="copyToClipboard('aswind5542@gmail.com', 'Email Address')" title="Click to copy Email">
+                <div class="contact-icon-box">
+                  <i class="fa-regular fa-envelope"></i>
+                </div>
+                <div class="contact-info-text">
+                  <span class="info-label">Email</span>
+                  <span class="info-val">aswind5542@gmail.com</span>
+                </div>
+                <button class="copy-action-btn" aria-label="Copy Email"><i class="fa-regular fa-copy"></i></button>
+              </div>
+
+              <div class="contact-info-card copyable" onclick="copyToClipboard('+919597040636', 'Phone Number')" title="Click to copy Phone">
+                <div class="contact-icon-box">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div class="contact-info-text">
+                  <span class="info-label">Phone</span>
+                  <span class="info-val">+91 9597040636</span>
+                </div>
+                <button class="copy-action-btn" aria-label="Copy Phone"><i class="fa-regular fa-copy"></i></button>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-icon-box">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="contact-info-text">
+                  <span class="info-label">Location</span>
+                  <span class="info-val">Kandanvilai, Tamil Nadu</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-social-row">
+              <a href="https://www.linkedin.com/in/aswin-d-015b68355" target="_blank" rel="noopener noreferrer" class="contact-social-btn" title="LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+              <a href="https://github.com/aswinD17" target="_blank" rel="noopener noreferrer" class="contact-social-btn" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+              </a>
+              <a href="./port.pdf" target="_blank" class="contact-social-btn" title="Resume PDF">
+                <i class="fa-solid fa-file-pdf"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Centered Footer matching myweb.png -->
+  <footer class="site-footer">
+    <div class="footer-center">
+      <div class="footer-kanji">勝</div>
+      <p class="footer-copy">&copy; 2026 ASWIN. All rights reserved.</p>
+      <p class="footer-tagline">B.Tech AI &amp; Data Science &bull; DMI Engineering College (Anna University) &bull; Kandanvilai, TN</p>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-shelf" class="toast-shelf"></div>
+
+  <!-- PROJECT DEEP DIVE MODAL -->
+  <div class="modal-backdrop" id="project-modal">
+    <div class="modal-card glass-box">
+      <div class="modal-header">
+        <div class="box-badge gold"><span class="badge-dot gold"></span> PROJECT BLUEPRINT</div>
+        <button class="modal-close-btn" onclick="closeModal('project-modal')">&times;</button>
+      </div>
+      <div class="modal-body" id="project-modal-body">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
